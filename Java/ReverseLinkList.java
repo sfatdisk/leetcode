@@ -1,3 +1,21 @@
+// YuShu
+
+public Node reverseLinkList( Node head){
+    if( head ==null || head.next==null ){
+        return;
+    }
+
+    Node pre= null;
+    Node current= head; 
+    while( current !=null ){
+        Node next= current.next; 
+        current.next=pre;
+        pre= current; 
+        current= next;
+    }
+    return pre;
+} 
+
 /* 
 check at least 2 nodes
 setup pre and current nodes
