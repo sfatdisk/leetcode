@@ -37,3 +37,13 @@ public class Solution {
         return addDigits( result+num ); 
     }
 }
+
+// amazing .....
+public class Solution {
+    public int addDigits(int num) {
+    // Wiki
+        return num-9*((num-1)/9);
+    }
+}
+
+
