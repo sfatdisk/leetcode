@@ -23,6 +23,27 @@ public class Solution {
     }
 }
 
+9/ 25 /2015
+
+public class Solution {
+    public int addDigits(int num) {
+        
+        if( num < 10 ){ return num; }
+        
+        int temp=0 ; 
+        while( num >=10 ){
+            temp+= num%10;
+            num/=10;    
+        }
+        int rst= temp+ num;
+        if( rst >= 10 ){
+            rst= addDigits(rst );
+        }
+        
+        return rst; 
+    }
+}
+
 Discussion : https://leetcode.com/discuss/59588/my-simple-java-solution-use-loop-and-without-loop
 Wiki: https://en.wikipedia.org/wiki/Digital_root
 

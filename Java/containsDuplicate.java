@@ -19,11 +19,29 @@ public class Solution {
 // another way? HashSet
 
 public class Solution {
+
     public boolean containsDuplicate(int[] nums) {
         if( nums.length< 2){ return false;  }
-        HashSet<Integer> set= new HashSet<Integer>();
+
+        HashSet<Integer> set= new HashSet<Integer>();   // ******
         for( int num: nums ){
             if( !set.add(num) ){  // set.add() true, not in set
+                return true;
+            }
+        }
+        return false; 
+    }
+}
+
+public class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        // lookup set
+        int length= nums.length;
+        if( length < 2 ){ return false; }
+        
+        HashSet set= new HashSet();    // **********
+        for(int i=0; i<length ; ++i){
+            if( !set.add(nums[i]) ){ // set.add return false becaue already in set
                 return true;
             }
         }

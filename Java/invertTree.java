@@ -16,3 +16,17 @@ public class Solution {
         return root; 
     }
 }
+
+public class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        
+        if(root== null ){ return null; }
+        
+        TreeNode right = root.right ;
+        root.right = invertTree( root.left); // move left
+        root.left  = invertTree( right );   // move right
+        
+        return root;
+        
+    }
+}
