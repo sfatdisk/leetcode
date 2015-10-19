@@ -1,33 +1,26 @@
+
 public class Solution {
-    
     public List<String> binaryTreePaths(TreeNode root) {
         
-        List<String> paths =  new ArrayList<>();
-       
-       if( root== null){
-           return paths; 
-       }
-       
-       String path = root.val+"";
-       buildBinaryTreePaths( paths, path, root );
-       return paths;
-    } 
-       
-      
-    private void buildBinaryTreePaths( List<String>paths, String path, TreeNode root ){
-         
-           
-        if( root.left==null && root.right==null ){ // leaf node
-            paths.add(path); // 
+        List<String> rsts= new ArrayList<>();
+        if(root== null){ return rsts; }
+        
+        String rst= ""+root.val ;
+        buildBinaryTreePaths( root, rst , rsts );
+        return rsts; 
+    }
+    private void buildBinaryTreePaths( TreeNode root, String rst , List<String> rsts ){
+        
+        if( root.left== null && root.right== null  ){ // leaf node
+            rsts.add (rst);
             return;
         }
-      
-        if( root.left != null ){
-            buildBinaryTreePaths( paths, path+"->"+root.left.val, root.left );
+        
+        if( root.left !=null ){
+            buildBinaryTreePaths( root.left, rst+"->"+root.left.val , rsts );
         }
-        if( root.right != null ){
-            buildBinaryTreePaths( paths, path+"->"+root.right.val , root.right );
+        if( root.right !=null ){
+            buildBinaryTreePaths( root.right, rst+"->"+root.right.val, rsts );
         }
     }
-    
 }

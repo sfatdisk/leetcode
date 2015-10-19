@@ -3,13 +3,13 @@
 public class Solution {
     public boolean hasCycle(ListNode head) {
         
-        if(head == null || head.next == null ){ 
+        if(head == null || head.next == null ){ // duplicates
             return false ; 
         }
         
         ListNode slow= head;
         ListNode fast= head; 
-        while( fast != null && fast.next != null ){
+        while( fast != null && fast.next != null ){ // same here
             slow= slow.next;
             fast= fast.next.next; 
             if(slow == fast){ 
